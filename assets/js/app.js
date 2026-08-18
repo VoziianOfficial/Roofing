@@ -1,0 +1,20 @@
+(function(){
+  const cfg=window.SITE_CONFIG||{};
+  document.querySelectorAll('[data-site-name]').forEach(el=>el.textContent=cfg.siteName||'Roofly');
+  document.querySelectorAll('[data-legal-name]').forEach(el=>el.textContent=cfg.legalName||cfg.siteName||'Roofly Network');
+  document.querySelectorAll('[data-site-email]').forEach(el=>{el.textContent=cfg.email||''; if(el.tagName==='A') el.href='mailto:'+cfg.email});
+  document.querySelectorAll('[data-disclaimer]').forEach(el=>el.textContent=cfg.disclaimer||'');
+  document.querySelectorAll('[data-copyright]').forEach(el=>el.textContent=cfg.copyright||'');
+  document.querySelectorAll('[data-config-logo]').forEach(el=>el.src=cfg.logo||'assets/images/logo-mark.svg');
+  const favicon=document.querySelector('link[rel="icon"]'); if(favicon) favicon.href=cfg.favicon||'assets/images/favicon.svg';
+  document.querySelectorAll('[data-nav-label]').forEach(el=>{const key=el.dataset.navLabel;if(cfg.nav&&cfg.nav[key])el.textContent=cfg.nav[key]});
+  const header=document.querySelector('.site-header');
+  window.addEventListener('scroll',()=>{if(header) header.classList.toggle('is-scrolled',window.scrollY>30)}, {passive:true});
+  const menu=document.querySelector('.menu-toggle'), links=document.querySelector('.nav__links');
+  if(menu&&links){menu.addEventListener('click',()=>{const open=links.classList.toggle('is-open');menu.setAttribute('aria-expanded',open);document.body.classList.toggle('is-locked',open)});links.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{links.classList.remove('is-open');document.body.classList.remove('is-locked');menu.setAttribute('aria-expanded','false')}))}
+  if(window.AOS) AOS.init({once:true,duration:700,easing:'ease-out-cubic',offset:70});
+  if(window.Swiper&&document.querySelector('.provider-swiper')) new Swiper('.provider-swiper',{loop:true,spaceBetween:20,slidesPerView:1,autoplay:{delay:4500,disableOnInteraction:false},pagination:{el:'.swiper-pagination',clickable:true},breakpoints:{800:{slidesPerView:1.35}}});
+  document.querySelectorAll('.accordion__button').forEach(button=>button.addEventListener('click',()=>{const item=button.closest('.accordion__item');const open=item.classList.toggle('is-open');button.setAttribute('aria-expanded',open)}));
+  const parallax=document.querySelector('.parallax'); if(parallax&&window.matchMedia('(min-width: 901px)').matches){window.addEventListener('scroll',()=>{const rect=parallax.getBoundingClientRect();const shift=(window.innerHeight/2-(rect.top+rect.height/2))*.08;parallax.style.backgroundPosition=`center calc(50% + ${shift}px)`},{passive:true})}
+  document.querySelectorAll('.contact-form').forEach(form=>form.addEventListener('submit',async e=>{e.preventDefault();const status=form.querySelector('.form-status'),button=form.querySelector('button[type=submit]');if(!form.checkValidity()){form.reportValidity();return}button.disabled=true;button.setAttribute('aria-busy','true');status.textContent='Sending…';status.className='form-status';try{const response=await fetch(form.action,{method:'POST',body:new FormData(form),headers:{Accept:'application/json'}});const data=await response.json();if(!response.ok||!data.success)throw new Error(data.message||'Please try again.');status.textContent=cfg.formSuccessMessage||data.message;status.className='form-status success';form.reset()}catch(err){status.textContent=err.message||'Something went wrong. Please try again.';status.className='form-status error'}finally{button.disabled=false;button.removeAttribute('aria-busy')}}));
+})();

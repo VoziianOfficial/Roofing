@@ -1,0 +1,5 @@
+<svg width="84" height="64" viewBox="0 0 84 64" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Roofly mark">
+  <path d="M6 40 41 8l37 32" fill="none" stroke="#F04B3B" stroke-width="7" stroke-linecap="square"/>
+  <path d="M17 40h54L57 56H31z" fill="#F04B3B"/>
+  <path d="M31 56h25" stroke="#101722" stroke-width="4"/>
+</svg>

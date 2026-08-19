@@ -23,7 +23,15 @@
     policy.querySelector('button').addEventListener('click',()=>{setConsent();policy.classList.add('is-hidden');policy.addEventListener('transitionend',()=>policy.remove(),{once:true})});
   }
   const menu=document.querySelector('.menu-toggle'), links=document.querySelector('.nav__links');
-  if(menu&&links){menu.addEventListener('click',()=>{const open=links.classList.toggle('is-open');menu.setAttribute('aria-expanded',open);document.body.classList.toggle('is-locked',open)});links.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{links.classList.remove('is-open');document.body.classList.remove('is-locked');menu.setAttribute('aria-expanded','false')}))}
+  if(links&&!links.querySelector('.nav__mobile-email')){
+    const email=document.createElement('a');
+    email.className='nav__mobile-email';
+    email.setAttribute('data-site-email','');
+    email.href='mailto:'+(cfg.email||'hello@roofly.network');
+    email.textContent=cfg.email||'hello@roofly.network';
+    links.appendChild(email);
+  }
+  if(menu&&links){menu.addEventListener('click',()=>{const open=links.classList.toggle('is-open');menu.setAttribute('aria-expanded',open);menu.setAttribute('aria-label',open?'Close menu':'Open menu');menu.textContent=open?'×':'☰';document.body.classList.toggle('is-locked',open)});links.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{links.classList.remove('is-open');document.body.classList.remove('is-locked');menu.setAttribute('aria-expanded','false');menu.setAttribute('aria-label','Open menu');menu.textContent='☰'}))}
   document.querySelectorAll('.nav__item--has-menu').forEach(item=>{const trigger=item.querySelector('.nav__trigger');if(!trigger)return;const setOpen=open=>trigger.setAttribute('aria-expanded',open?'true':'false');item.addEventListener('mouseenter',()=>setOpen(true));item.addEventListener('mouseleave',()=>setOpen(false));item.addEventListener('focusin',()=>setOpen(true));item.addEventListener('focusout',event=>{if(!item.contains(event.relatedTarget))setOpen(false)})});
   if(window.AOS) AOS.init({once:true,duration:700,easing:'ease-out-cubic',offset:70});
   if(window.Swiper) document.querySelectorAll('.provider-swiper').forEach(swiper=>new Swiper(swiper,{loop:true,spaceBetween:18,slidesPerView:1,autoplay:{delay:4500,disableOnInteraction:false},pagination:{el:swiper.querySelector('.swiper-pagination'),clickable:true},breakpoints:{700:{slidesPerView:2,spaceBetween:24},1100:{slidesPerView:2,spaceBetween:28}}}));

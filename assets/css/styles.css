@@ -21,7 +21,7 @@
 .provider-swiper .provider-card__media{grid-column:1;grid-row:2;display:block;width:100%;min-width:0;height:100%;min-height:0;max-height:none;overflow:hidden}
 .provider-swiper .provider-card__media img{display:block;width:100%;height:100%;min-width:100%;min-height:100%;object-fit:cover;object-position:center top;opacity:1;visibility:visible}
 
-.testimonials{background:var(--paper);color:#171717;overflow:hidden}
+.testimonials{padding-bottom:64px;background:var(--paper);color:#171717;overflow:hidden}
 .testimonials__inner{width:min(calc(100% - 64px),1620px)}
 .testimonials__heading{text-align:center;margin:0 auto 84px}
 .testimonials__eyebrow{margin-bottom:22px;color:#343940;font-size:1rem;font-weight:800;line-height:1;letter-spacing:.32em;text-transform:uppercase}
@@ -63,6 +63,7 @@
   .provider-swiper .swiper-slide.provider-card.swiper-slide-next{grid-template-columns:1fr;grid-template-rows:auto 320px;height:auto;min-height:0}
   .provider-swiper .provider-card__copy{height:auto;padding:34px 28px 38px}
   .provider-swiper .provider-card__media{grid-column:1;grid-row:2;height:320px;min-height:320px;max-height:320px;order:0}
+  .testimonials{padding-bottom:44px}
   .testimonials__inner{width:min(calc(100% - 40px),1620px)}
   .testimonials__heading{margin-bottom:56px}
   .testimonials__heading h2{font-size:3rem}
@@ -88,6 +89,7 @@
 }
 
 @media (max-width:560px){
+  .testimonials{padding-bottom:44px}
   .testimonials__inner{width:min(calc(100% - 28px),1620px)}
   .testimonials__heading{margin-bottom:38px}
   .testimonials__eyebrow{margin-bottom:16px;font-size:.78rem;letter-spacing:.22em}

@@ -880,6 +880,13 @@ img {
 }
 
 .parallax {
+  padding: 64px 0;
+  background: var(--paper)
+}
+
+.parallax__frame {
+  width: min(calc(100% - 64px), 1480px);
+  margin: 0 auto;
   min-height: 540px;
   display: grid;
   place-items: center;
@@ -888,8 +895,18 @@ img {
   background: linear-gradient(rgba(12, 19, 32, .62), rgba(12, 19, 32, .62)), url('../images/parallax-tiles.png') center/cover fixed
 }
 
+.parallax__frame .container {
+  width: 100%;
+  min-height: inherit;
+  display: grid;
+  place-items: center;
+  padding: 0 32px
+}
+
 .parallax .h2 {
-  max-width: 900px
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center
 }
 
 .contact {
@@ -1338,7 +1355,7 @@ img {
     flex-direction: column
   }
 
-  .parallax {
+  .parallax__frame {
     background-attachment: scroll;
     min-height: 440px
   }

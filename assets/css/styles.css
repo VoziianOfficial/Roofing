@@ -246,23 +246,23 @@
 .service-timeline-pagination .swiper-pagination-bullet{width:24px;height:24px;margin:0!important;border:0;border-radius:50%;background:#262626;opacity:1;transform:scale(.82);transition:transform .2s ease,background .2s ease,box-shadow .2s ease}
 .service-timeline-pagination .swiper-pagination-bullet-active{background:#101010;box-shadow:0 0 0 8px rgba(16,16,16,.08);transform:scale(1)}
 
-.service-sticky{padding:clamp(86px,7vw,136px) 0;background:#fff;color:#080808;overflow:visible}
-.service-sticky+.service-sticky{padding-top:clamp(30px,3vw,56px)}
-.service-sticky__grid{width:min(calc(100% - 64px),1660px);display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.93fr);gap:clamp(56px,5.6vw,118px);align-items:start}
+.service-sticky{padding:clamp(48px,4.8vw,82px) 0;background:#fff;color:#080808;overflow:visible}
+.service-sticky+.service-sticky{padding-top:clamp(18px,2vw,34px)}
+.service-sticky__grid{width:min(calc(100% - 64px),1660px);display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.93fr);gap:clamp(42px,4.2vw,84px);align-items:start}
 .service-sticky--image-right .service-sticky__grid{grid-template-columns:minmax(0,.93fr) minmax(0,1fr)}
-.service-sticky__media{width:100%;height:clamp(620px,47vw,900px);margin:0;background:#dce1e6;overflow:hidden}
+.service-sticky__media{width:100%;height:clamp(480px,36vw,680px);margin:0;background:#dce1e6;overflow:hidden}
 .service-sticky__media img{width:100%;height:100%;object-fit:cover;object-position:center;transition:transform .65s ease}
 .service-sticky__media:hover img{transform:scale(1.025)}
-.service-sticky__copy{position:sticky;top:128px;min-width:0;padding-top:clamp(34px,5.2vw,94px)}
-.service-sticky--image-right .service-sticky__copy{padding-top:clamp(92px,9.4vw,174px)}
-.service-sticky__copy h2{max-width:980px;margin:0 0 clamp(46px,4.2vw,74px);font-size:clamp(2rem,2.35vw,3.15rem);font-weight:500;line-height:1.14;letter-spacing:0;text-wrap:balance}
+.service-sticky__copy{position:sticky;top:112px;min-width:0;padding-top:clamp(18px,3vw,52px)}
+.service-sticky--image-right .service-sticky__copy{padding-top:clamp(42px,5.4vw,86px)}
+.service-sticky__copy h2{max-width:980px;margin:0 0 clamp(30px,3vw,52px);font-size:clamp(1.85rem,2.1vw,2.72rem);font-weight:500;line-height:1.14;letter-spacing:0;text-wrap:balance}
 .service-sticky-accordion{border-top:0}
 .service-sticky-accordion .accordion__item{border-bottom:1px solid rgba(8,8,8,.13)}
-.service-sticky-accordion .accordion__button{padding:clamp(26px,2.35vw,44px) 0;color:#080808;font-size:clamp(2rem,2.45vw,3.1rem);font-weight:800;line-height:1.08;letter-spacing:0}
+.service-sticky-accordion .accordion__button{padding:clamp(20px,1.65vw,30px) 0;color:#080808;font-size:clamp(1.72rem,2vw,2.55rem);font-weight:800;line-height:1.08;letter-spacing:0}
 .service-sticky-accordion .accordion__plus{display:grid;place-items:center;flex:0 0 42px;width:42px;height:42px;color:#080808;font-size:42px;font-weight:300;line-height:1;transform:none}
 .service-sticky-accordion .accordion__item.is-open .accordion__plus{font-size:0;transform:none}
 .service-sticky-accordion .accordion__item.is-open .accordion__plus:before{content:'-';font-size:42px;line-height:1}
-.service-sticky-accordion .accordion__panel p{max-width:840px;margin:0 0 clamp(28px,2.8vw,48px);color:#4e4e4e;font-size:clamp(1.25rem,1.55vw,2rem);line-height:1.76;text-wrap:pretty}
+.service-sticky-accordion .accordion__panel p{max-width:840px;margin:0 0 clamp(22px,2vw,34px);color:#4e4e4e;font-size:clamp(1.08rem,1.25vw,1.55rem);line-height:1.58;text-wrap:pretty}
 
 @media (max-width:1100px){
   .service-showcase{padding-top:56px}
@@ -290,15 +290,15 @@
 @media (max-width:700px){
   .service-showcase{padding:40px 0 72px}
   .service-showcase>.container{width:min(calc(100% - 28px),1560px)}
-  .service-sticky{padding:62px 0}
-  .service-sticky+.service-sticky{padding-top:20px}
+  .service-sticky{padding:44px 0}
+  .service-sticky+.service-sticky{padding-top:14px}
   .service-sticky__grid{width:min(calc(100% - 28px),1560px)}
-  .service-sticky__media{height:390px}
-  .service-sticky__copy h2{margin-bottom:34px;font-size:clamp(1.7rem,8.5vw,2.45rem)}
-  .service-sticky-accordion .accordion__button{font-size:clamp(1.55rem,7.2vw,2.1rem)}
+  .service-sticky__media{height:320px}
+  .service-sticky__copy h2{margin-bottom:24px;font-size:clamp(1.55rem,7.4vw,2.1rem)}
+  .service-sticky-accordion .accordion__button{padding:18px 0;font-size:clamp(1.4rem,6.4vw,1.86rem)}
   .service-sticky-accordion .accordion__plus,
   .service-sticky-accordion .accordion__item.is-open .accordion__plus:before{font-size:34px}
-  .service-sticky-accordion .accordion__panel p{font-size:1.08rem;line-height:1.66}
+  .service-sticky-accordion .accordion__panel p{margin-bottom:22px;font-size:1rem;line-height:1.58}
   .service-showcase__hero{min-height:280px;width:100%}
   .service-showcase__hero-copy{padding:54px 18px 76px}
   .service-showcase__grid{margin-top:-42px}

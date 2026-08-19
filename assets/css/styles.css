@@ -246,6 +246,15 @@
 .service-timeline-pagination .swiper-pagination-bullet{width:24px;height:24px;margin:0!important;border:0;border-radius:50%;background:#262626;opacity:1;transform:scale(.82);transition:transform .2s ease,background .2s ease,box-shadow .2s ease}
 .service-timeline-pagination .swiper-pagination-bullet-active{background:#101010;box-shadow:0 0 0 8px rgba(16,16,16,.08);transform:scale(1)}
 
+.service-loop-marquee{height:clamp(250px,22vw,390px);display:grid;align-content:center;gap:clamp(10px,1vw,22px);background:#fff;color:#060606;overflow:hidden;contain:paint}
+.service-loop-marquee__row{overflow:hidden}
+.service-loop-marquee__track{display:flex;width:max-content;animation:serviceLoopMarquee 42s linear infinite;will-change:transform}
+.service-loop-marquee__row--solid .service-loop-marquee__track{animation-duration:34s}
+.service-loop-marquee__group{display:flex;align-items:center;gap:clamp(76px,7vw,154px);padding-right:clamp(76px,7vw,154px);white-space:nowrap;text-transform:uppercase}
+.service-loop-marquee__row--outline span{color:transparent;-webkit-text-stroke:2px rgba(6,6,6,.42);text-stroke:2px rgba(6,6,6,.42);font-size:clamp(5rem,10.8vw,14rem);font-weight:900;line-height:.82;letter-spacing:0}
+.service-loop-marquee__row--solid span{font-size:clamp(2.4rem,4.8vw,6.1rem);font-weight:900;line-height:.9;letter-spacing:0;color:#050505}
+@keyframes serviceLoopMarquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
 .service-sticky{padding:clamp(48px,4.8vw,82px) 0;background:#fff;color:#080808;overflow:visible}
 .service-sticky+.service-sticky{padding-top:clamp(18px,2vw,34px)}
 .service-sticky__grid{width:min(calc(100% - 64px),1660px);display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.93fr);gap:clamp(42px,4.2vw,84px);align-items:start}
@@ -272,6 +281,9 @@
   .service-tabs{padding-top:0}
   .service-tabs__nav{margin-bottom:34px;gap:30px;flex-wrap:wrap}
   .service-tabs__panels{min-height:auto}
+  .service-loop-marquee{height:clamp(210px,28vw,300px)}
+  .service-loop-marquee__row--outline span{font-size:clamp(4.2rem,13vw,8rem)}
+  .service-loop-marquee__row--solid span{font-size:clamp(2rem,6vw,3.8rem)}
   .service-sticky__grid,
   .service-sticky--image-right .service-sticky__grid{grid-template-columns:1fr;gap:46px}
   .service-sticky__copy,
@@ -290,6 +302,10 @@
 @media (max-width:700px){
   .service-showcase{padding:40px 0 72px}
   .service-showcase>.container{width:min(calc(100% - 28px),1560px)}
+  .service-loop-marquee{height:178px}
+  .service-loop-marquee__group{gap:48px;padding-right:48px}
+  .service-loop-marquee__row--outline span{-webkit-text-stroke:1px rgba(6,6,6,.42);text-stroke:1px rgba(6,6,6,.42);font-size:3.65rem}
+  .service-loop-marquee__row--solid span{font-size:1.82rem}
   .service-sticky{padding:44px 0}
   .service-sticky+.service-sticky{padding-top:14px}
   .service-sticky__grid{width:min(calc(100% - 28px),1560px)}

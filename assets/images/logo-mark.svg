@@ -1,7 +1,7 @@
 <svg width="104" height="64" viewBox="0 0 104 64" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Roofly mark">
-  <path d="M7 46h14L46 20l25 26h14L46 8 7 46z" fill="#101722"/>
+  <path d="M7 46h14L46 20l25 26h14L46 8 7 46z" fill="#FFFFFF"/>
   <path d="M42 46h12l21-22 21 22h8L75 10 42 46z" fill="#F04B3B"/>
-  <path d="M29 19h7v21h-7z" fill="#101722"/>
+  <path d="M29 19h7v21h-7z" fill="#FFFFFF"/>
   <path d="M84 20h7v21h-7z" fill="#F04B3B"/>
   <g fill="#F04B3B">
     <rect x="48" y="39" width="5" height="5"/>

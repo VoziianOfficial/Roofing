@@ -615,3 +615,36 @@
   .roof-workflow__icon svg{width:52px;height:52px}
   .roof-workflow__step p{max-width:430px}
 }
+
+@media (max-width:900px){
+  main section h1,
+  main section h2{text-align:center;margin-left:auto;margin-right:auto}
+  main section .eyebrow{justify-content:center}
+  .hero__content,
+  .hero__aside,
+  .section-intro,
+  .projects-showcase__intro,
+  .finder__intro,
+  .process-panel,
+  .faq__intro,
+  .contact__copy,
+  .service-hero .container,
+  .service-sticky__copy,
+  .service-stats__intro,
+  .service-insight__container{text-align:center}
+  .hero__bottom,
+  .section-intro{align-items:center;justify-content:center}
+  .section-intro p,
+  .hero__aside,
+  .hero__stamp,
+  .finder__intro p,
+  .process-panel p,
+  .faq__intro p,
+  .contact__copy p,
+  .contact__email,
+  .service-sticky__copy h2,
+  .service-stats__intro h2,
+  .service-stats__intro p,
+  .service-insight p{margin-left:auto;margin-right:auto}
+  .process-button{align-self:center}
+}

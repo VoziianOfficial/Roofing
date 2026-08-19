@@ -3810,19 +3810,20 @@ img {
 
 .projects-showcase {
   padding: 72px 0 0;
-  background: #fff;
+  background: var(--paper);
   color: #050505;
   overflow: hidden
 }
 
 .projects-showcase__intro {
   width: min(calc(100% - 64px), 1480px);
-  margin: 0 auto 42px
+  margin: 0 auto 42px;
+  text-align: center
 }
 
 .projects-showcase__intro h2 {
   max-width: none;
-  margin: 0;
+  margin: 0 auto;
   font-size: clamp(2.75rem, 4.25vw, 5.25rem);
   font-weight: 700;
   line-height: .94;
@@ -3832,7 +3833,8 @@ img {
 
 .vertical-project-swiper {
   position: relative;
-  width: 100%;
+  width: min(calc(100% - 64px), 1480px);
+  margin: 0 auto;
   height: min(640px, 64vh);
   min-height: 520px;
   background: #160f0c;
@@ -4018,6 +4020,7 @@ img {
   }
 
   .vertical-project-swiper {
+    width: min(calc(100% - 40px), 1480px);
     height: 610px;
     min-height: 560px
   }
@@ -4067,6 +4070,7 @@ img {
   }
 
   .vertical-project-swiper {
+    width: min(calc(100% - 32px), 1480px);
     height: 590px;
     min-height: 540px
   }

@@ -594,6 +594,15 @@
 .roof-workflow__step:hover .roof-workflow__icon{background:var(--coral);border-color:var(--coral);color:#fff;box-shadow:0 24px 54px rgba(240,75,59,.28);transform:translateY(-4px)}
 .roof-workflow__step:hover h3{color:var(--coral)}
 
+.policy-toast{position:fixed;left:50%;bottom:18px;z-index:18;display:flex;align-items:center;justify-content:space-between;gap:22px;width:min(calc(100% - 32px),920px);padding:12px 14px 12px 20px;background:rgba(251,250,247,.96);border:1px solid rgba(16,23,34,.16);box-shadow:0 18px 48px rgba(4,10,20,.18);color:var(--ink);transform:translateX(-50%);transition:opacity .2s ease,transform .2s ease;backdrop-filter:blur(14px)}
+.policy-toast.is-hidden{opacity:0;transform:translate(-50%,12px);pointer-events:none}
+.policy-toast p{margin:0;color:#4c5661;font-size:.9rem;line-height:1.35}
+.policy-toast__actions{display:flex;align-items:center;gap:10px;flex:0 0 auto}
+.policy-toast__actions a,.policy-toast__actions button{display:inline-flex;align-items:center;justify-content:center;min-height:38px;padding:0 16px;border:1px solid var(--ink);border-radius:0;background:transparent;color:var(--ink);font-size:.72rem;font-weight:850;letter-spacing:.12em;text-transform:uppercase;white-space:nowrap;transition:background .2s ease,color .2s ease,border-color .2s ease}
+.policy-toast__actions button{background:var(--coral);border-color:var(--coral);color:#fff}
+.policy-toast__actions a:hover{background:var(--ink);color:#fff}
+.policy-toast__actions button:hover{background:var(--ink);border-color:var(--ink)}
+
 @media (max-width:1100px){
   .roof-workflow__grid{grid-template-columns:repeat(2,minmax(0,1fr));row-gap:64px}
   .roof-workflow__icon{margin-bottom:38px}
@@ -614,6 +623,10 @@
   .roof-workflow__icon{width:96px;height:96px;margin-bottom:28px}
   .roof-workflow__icon svg{width:52px;height:52px}
   .roof-workflow__step p{max-width:430px}
+  .policy-toast{gap:10px;bottom:10px;padding:10px;width:min(calc(100% - 20px),520px)}
+  .policy-toast p{display:-webkit-box;overflow:hidden;-webkit-line-clamp:2;-webkit-box-orient:vertical;font-size:.76rem;line-height:1.28}
+  .policy-toast__actions{gap:6px}
+  .policy-toast__actions a,.policy-toast__actions button{min-height:34px;padding:0 9px;font-size:.62rem;letter-spacing:.08em}
 }
 
 @media (max-width:900px){

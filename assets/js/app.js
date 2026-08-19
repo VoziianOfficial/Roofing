@@ -10,6 +10,18 @@
   document.querySelectorAll('[data-nav-label]').forEach(el=>{const key=el.dataset.navLabel;if(cfg.nav&&cfg.nav[key])el.textContent=cfg.nav[key]});
   const header=document.querySelector('.site-header');
   window.addEventListener('scroll',()=>{if(header) header.classList.toggle('is-scrolled',window.scrollY>30)}, {passive:true});
+  const consentKey='rooflyPolicyConsent';
+  const getConsent=()=>{try{return localStorage.getItem(consentKey)}catch(e){return null}};
+  const setConsent=()=>{try{localStorage.setItem(consentKey,'accepted')}catch(e){}};
+  if(!getConsent()){
+    const policy=document.createElement('div');
+    policy.className='policy-toast';
+    policy.setAttribute('role','region');
+    policy.setAttribute('aria-label','Policy confirmation');
+    policy.innerHTML='<p>We use essential browser storage to remember this choice and support site features. Review our policies anytime.</p><div class="policy-toast__actions"><a href="privacy-policy.html">Privacy Policy</a><button type="button">Accept</button></div>';
+    document.body.appendChild(policy);
+    policy.querySelector('button').addEventListener('click',()=>{setConsent();policy.classList.add('is-hidden');policy.addEventListener('transitionend',()=>policy.remove(),{once:true})});
+  }
   const menu=document.querySelector('.menu-toggle'), links=document.querySelector('.nav__links');
   if(menu&&links){menu.addEventListener('click',()=>{const open=links.classList.toggle('is-open');menu.setAttribute('aria-expanded',open);document.body.classList.toggle('is-locked',open)});links.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{links.classList.remove('is-open');document.body.classList.remove('is-locked');menu.setAttribute('aria-expanded','false')}))}
   document.querySelectorAll('.nav__item--has-menu').forEach(item=>{const trigger=item.querySelector('.nav__trigger');if(!trigger)return;const setOpen=open=>trigger.setAttribute('aria-expanded',open?'true':'false');item.addEventListener('mouseenter',()=>setOpen(true));item.addEventListener('mouseleave',()=>setOpen(false));item.addEventListener('focusin',()=>setOpen(true));item.addEventListener('focusout',event=>{if(!item.contains(event.relatedTarget))setOpen(false)})});

@@ -466,3 +466,13 @@
   .about-photo-controls{gap:20px}
   .about-photo-arrow{width:40px;height:40px;font-size:38px}
 }
+
+#services>.container{width:min(calc(100% - 64px),1440px)}
+
+@media (max-width:900px){
+  #services>.container{width:min(calc(100% - 40px),900px)}
+}
+
+@media (max-width:560px){
+  #services>.container{width:min(calc(100% - 32px),900px)}
+}

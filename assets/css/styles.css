@@ -487,7 +487,7 @@
 .roof-workflow__icon{position:relative;z-index:1;display:grid;place-items:center;width:116px;height:116px;margin:0 auto 72px;border:1px solid rgba(16,23,34,.18);border-radius:50%;background:#fff;color:var(--ink);box-shadow:0 18px 44px rgba(16,23,34,.08);transition:background .25s ease,color .25s ease,border-color .25s ease,box-shadow .25s ease,transform .25s ease}
 .roof-workflow__icon svg{width:62px;height:62px;fill:none;stroke:currentColor;stroke-width:2.8;stroke-linecap:round;stroke-linejoin:round}
 .roof-workflow__step h3{margin:0 0 22px;font-size:clamp(1.35rem,1.65vw,2.1rem);font-weight:800;line-height:1.1;letter-spacing:0}
-.roof-workflow__step p{margin:0;max-width:390px;color:#707882;font-size:clamp(1rem,1.1vw,1.25rem);line-height:1.62}
+.roof-workflow__step p{margin:0;width:100%;max-width:390px;color:#707882;font-size:clamp(1rem,1.1vw,1.25rem);line-height:1.62;text-align:justify;text-align-last:left;hyphens:auto}
 .roof-workflow__step:hover{transform:translateY(-8px)}
 .roof-workflow__step:hover .roof-workflow__icon{background:var(--coral);border-color:var(--coral);color:#fff;box-shadow:0 24px 54px rgba(240,75,59,.28);transform:translateY(-4px)}
 .roof-workflow__step:hover h3{color:var(--coral)}

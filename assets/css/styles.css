@@ -40,6 +40,22 @@
 .testimonial-pagination .swiper-pagination-bullet{width:15px;height:15px;margin:0!important;border:3px solid #dbe7ff;border-radius:50%;background:transparent;opacity:1;transition:background .2s ease,border-color .2s ease,transform .2s ease}
 .testimonial-pagination .swiper-pagination-bullet-active{border-color:#4a85f7;background:#4a85f7;transform:scale(1.05)}
 
+.pricing-faq{padding-top:96px;padding-bottom:96px;background:var(--paper);color:var(--ink)}
+.pricing-faq__container{width:min(calc(100% - 64px),1660px);margin:0 auto}
+.pricing-faq__title{margin:0;color:var(--ink);font-size:5rem;font-weight:800;line-height:1;letter-spacing:0}
+.pricing-faq__panel{margin-top:58px;padding:58px 68px;background:linear-gradient(135deg,var(--ink),var(--ink-2));border-radius:8px;color:#fff;box-shadow:0 26px 70px rgba(16,23,34,.16)}
+.pricing-faq__price{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:48px;align-items:center;padding:0 0 48px}
+.pricing-faq__price+.pricing-faq__price{padding-top:48px;border-top:1px solid rgba(255,255,255,.18)}
+.pricing-faq__price:last-child{padding-bottom:0}
+.pricing-faq__price h3{margin:0 0 12px;font-size:2.45rem;font-weight:800;line-height:1.08;letter-spacing:0}
+.pricing-faq__price p{max-width:980px;margin:0;color:rgba(255,255,255,.76);font-size:1.32rem;line-height:1.5}
+.pricing-faq__price strong{color:var(--coral);font-size:2.75rem;font-weight:850;line-height:1;white-space:nowrap}
+.pricing-faq__title--questions{margin-top:108px}
+.pricing-faq__questions{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px 42px;margin-top:58px}
+.pricing-faq__questions article{display:flex;align-items:center;min-height:112px;padding:28px 42px;background:#fff;border:1px solid rgba(16,23,34,.08);border-radius:8px;color:var(--ink);box-shadow:0 18px 42px rgba(16,23,34,.05);font-size:1.55rem;font-weight:800;line-height:1.18;letter-spacing:0}
+.pricing-faq__photos{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:42px;margin-top:118px}
+.pricing-faq__photos img{width:100%;height:500px;object-fit:cover;background:#d8dde2}
+
 @media (max-width:900px){
   .provider-swiper .swiper-slide.provider-card,
   .provider-swiper .swiper-slide.provider-card.swiper-slide-prev,
@@ -54,6 +70,20 @@
   .testimonial-card p{font-size:1.28rem;line-height:1.62}
   .testimonial-card__icon{flex-basis:82px;width:82px;height:82px}
   .testimonial-card__icon svg{width:43px;height:43px}
+  .pricing-faq{padding-top:78px;padding-bottom:78px}
+  .pricing-faq__container{width:min(calc(100% - 40px),900px)}
+  .pricing-faq__title{font-size:3.2rem}
+  .pricing-faq__panel{margin-top:38px;padding:42px 34px}
+  .pricing-faq__price{grid-template-columns:1fr;gap:22px;padding-bottom:36px}
+  .pricing-faq__price+.pricing-faq__price{padding-top:36px}
+  .pricing-faq__price h3{font-size:2rem}
+  .pricing-faq__price p{font-size:1.08rem}
+  .pricing-faq__price strong{font-size:2.25rem}
+  .pricing-faq__title--questions{margin-top:78px}
+  .pricing-faq__questions{grid-template-columns:1fr;gap:18px;margin-top:36px}
+  .pricing-faq__questions article{min-height:92px;padding:24px 28px;font-size:1.28rem}
+  .pricing-faq__photos{grid-template-columns:1fr;gap:24px;margin-top:72px}
+  .pricing-faq__photos img{height:380px}
   .faq .faq__intro{position:static;top:auto}
 }
 
@@ -71,6 +101,20 @@
   .testimonial-card__author strong{font-size:1.1rem}
   .testimonial-card__author span{margin-top:6px;font-size:.92rem}
   .testimonial-pagination{gap:14px;margin-top:34px}
+  .pricing-faq{padding-top:62px;padding-bottom:62px}
+  .pricing-faq__container{width:min(calc(100% - 28px),900px)}
+  .pricing-faq__title{font-size:2.35rem}
+  .pricing-faq__panel{margin-top:28px;padding:30px 22px}
+  .pricing-faq__price{gap:18px;padding-bottom:30px}
+  .pricing-faq__price+.pricing-faq__price{padding-top:30px}
+  .pricing-faq__price h3{font-size:1.55rem}
+  .pricing-faq__price p{font-size:1rem;line-height:1.52}
+  .pricing-faq__price strong{font-size:1.85rem}
+  .pricing-faq__title--questions{margin-top:58px}
+  .pricing-faq__questions{gap:14px;margin-top:28px}
+  .pricing-faq__questions article{min-height:78px;padding:20px 22px;font-size:1.08rem}
+  .pricing-faq__photos{gap:18px;margin-top:54px}
+  .pricing-faq__photos img{height:270px}
 }
 
 .roof-compare{padding-top:64px;padding-bottom:64px;background:var(--paper);color:#fff}
@@ -251,6 +295,15 @@
 @keyframes serviceTabIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
 @keyframes serviceCaptionIn{from{opacity:.45;transform:translateY(8px)}to{opacity:1;transform:none}}
 
+.service-insight{padding:92px 0 58px;background:#fff;color:var(--ink)}
+.service-insight__container{width:min(calc(100% - 96px),1660px);margin:0 auto}
+.service-insight__meta{display:flex;align-items:center;justify-content:space-between;gap:32px;margin-bottom:28px;color:var(--ink);font-size:clamp(1.05rem,1.2vw,1.35rem);font-weight:650;line-height:1.2}
+.service-insight h2{max-width:1120px;margin:0;color:var(--ink);font-size:clamp(2.65rem,3.45vw,4.65rem);font-weight:800;line-height:1.05;letter-spacing:0;text-wrap:balance}
+.service-insight p{max-width:1500px;margin:32px 0 28px;color:#303a45;font-size:clamp(1.2rem,1.55vw,1.8rem);line-height:1.55;text-wrap:pretty}
+.service-insight a{display:inline-flex;margin-bottom:58px;color:var(--coral);font-size:clamp(1.1rem,1.25vw,1.45rem);font-weight:850;line-height:1.15;transition:color .2s ease,transform .2s ease}
+.service-insight a:hover{color:var(--ink);transform:translateY(-2px)}
+.service-insight__parallax{height:clamp(420px,31vw,660px);border-radius:8px;background-image:url('../images/service-insight-parallax.png');background-size:cover;background-position:center;background-attachment:fixed;box-shadow:0 24px 68px rgba(16,23,34,.12)}
+
 .service-timeline-section{--timeline-visual-h:clamp(340px,26vw,460px);--timeline-rail-half:clamp(42px,3.6vw,64px);padding:78px 0 112px;background:#fff;color:#0b0b0b;overflow:hidden}
 .service-timeline-shell{width:min(calc(100% - 64px),1780px);margin:0 auto}
 .service-timeline-swiper{position:relative;padding:0 36px;overflow:visible}
@@ -309,6 +362,8 @@
   .service-tabs{padding-top:0}
   .service-tabs__nav{margin-bottom:34px;gap:30px;flex-wrap:wrap}
   .service-tabs__panels{min-height:auto}
+  .service-insight__container{width:min(calc(100% - 56px),1100px)}
+  .service-insight__parallax{background-attachment:scroll;background-position:center}
   .service-loop-marquee{height:clamp(210px,28vw,300px)}
   .service-loop-marquee__row--outline span{font-size:clamp(4.2rem,13vw,8rem)}
   .service-loop-marquee__row--solid span{font-size:clamp(2rem,6vw,3.8rem)}
@@ -353,6 +408,13 @@
   .service-tabs__nav button{font-size:clamp(1.35rem,8vw,2.05rem)}
   .service-tabs__panel p{font-size:1.08rem;line-height:1.62}
   .service-metrics{gap:24px;margin-top:34px}
+  .service-insight{padding:66px 0 40px}
+  .service-insight__container{width:min(calc(100% - 32px),700px)}
+  .service-insight__meta{align-items:flex-start;flex-direction:column;gap:12px;margin-bottom:22px}
+  .service-insight h2{font-size:clamp(2.25rem,10vw,3.05rem)}
+  .service-insight p{margin-top:24px;font-size:1.08rem;line-height:1.58}
+  .service-insight a{margin-bottom:38px;font-size:1.05rem}
+  .service-insight__parallax{height:360px}
   .service-timeline-section{padding:58px 0 76px}
   .service-timeline-shell{width:min(calc(100% - 56px),620px)}
   .service-timeline-swiper{padding:0;overflow:hidden}

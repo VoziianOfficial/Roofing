@@ -1,5 +1,12 @@
-<svg width="84" height="64" viewBox="0 0 84 64" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Roofly mark">
-  <path d="M6 40 41 8l37 32" fill="none" stroke="#F04B3B" stroke-width="7" stroke-linecap="square"/>
-  <path d="M17 40h54L57 56H31z" fill="#F04B3B"/>
-  <path d="M31 56h25" stroke="#101722" stroke-width="4"/>
+<svg width="104" height="64" viewBox="0 0 104 64" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Roofly mark">
+  <path d="M7 46h14L46 20l25 26h14L46 8 7 46z" fill="#101722"/>
+  <path d="M42 46h12l21-22 21 22h8L75 10 42 46z" fill="#F04B3B"/>
+  <path d="M29 19h7v21h-7z" fill="#101722"/>
+  <path d="M84 20h7v21h-7z" fill="#F04B3B"/>
+  <g fill="#F04B3B">
+    <rect x="48" y="39" width="5" height="5"/>
+    <rect x="55" y="39" width="5" height="5"/>
+    <rect x="48" y="46" width="5" height="5"/>
+    <rect x="55" y="46" width="5" height="5"/>
+  </g>
 </svg>

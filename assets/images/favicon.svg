@@ -1,1 +1,13 @@
-<svg width="64" height="64" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><rect width="64" height="64" rx="16" fill="#101722"/><path d="M9 37 31 14l24 23" fill="none" stroke="#F04B3B" stroke-width="6"/><path d="M16 37h34L42 50H25z" fill="#F04B3B"/></svg>
+<svg width="64" height="64" viewBox="0 0 72 72" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Roofly">
+  <rect width="72" height="72" rx="16" fill="#FBFAF7"/>
+  <path d="M5 49h9l20-23 20 23h9L34 12 5 49z" fill="#101722"/>
+  <path d="M25 49h7l15-17 15 17h6L47 18 25 49z" fill="#F04B3B"/>
+  <path d="M22 22h6v19h-6z" fill="#101722"/>
+  <path d="M53 24h6v17h-6z" fill="#F04B3B"/>
+  <g fill="#F04B3B">
+    <rect x="35" y="43" width="4" height="4"/>
+    <rect x="41" y="43" width="4" height="4"/>
+    <rect x="35" y="49" width="4" height="4"/>
+    <rect x="41" y="49" width="4" height="4"/>
+  </g>
+</svg>

@@ -59,3 +59,5 @@
   .hero__title{font-size:clamp(2.8rem,14vw,3.35rem)}
   .service-hero .h2{font-size:clamp(2.25rem,11vw,2.85rem)}
 }
+.brand{font-family:'DM Sans',var(--sans)}
+.brand img{width:58px;height:36px}

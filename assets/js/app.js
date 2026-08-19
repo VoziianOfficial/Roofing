@@ -43,5 +43,32 @@
   document.querySelectorAll('.service-tabs').forEach(tabs=>{const buttons=[...tabs.querySelectorAll('[role="tab"]')],panels=[...tabs.querySelectorAll('[role="tabpanel"]')];buttons.forEach(button=>button.addEventListener('click',()=>{buttons.forEach(item=>{const active=item===button;item.classList.toggle('is-active',active);item.setAttribute('aria-selected',active?'true':'false')});panels.forEach(panel=>{const active=panel.id===button.getAttribute('aria-controls');panel.hidden=!active;panel.classList.toggle('is-active',active)})}))});
   document.querySelectorAll('.accordion__button').forEach(button=>button.addEventListener('click',()=>{const item=button.closest('.accordion__item');const open=item.classList.toggle('is-open');button.setAttribute('aria-expanded',open)}));
   const parallaxPanels=document.querySelectorAll('.parallax,.process-photo,.service-showcase__hero,.service-insight__parallax'); if(parallaxPanels.length&&window.matchMedia('(min-width: 901px)').matches){window.addEventListener('scroll',()=>{parallaxPanels.forEach(panel=>{const rect=panel.getBoundingClientRect();const shift=(window.innerHeight/2-(rect.top+rect.height/2))*.08;panel.style.backgroundPosition=`center calc(50% + ${shift}px)`})},{passive:true})}
-  document.querySelectorAll('.contact-form').forEach(form=>form.addEventListener('submit',async e=>{e.preventDefault();const status=form.querySelector('.form-status'),button=form.querySelector('button[type=submit]');if(!form.checkValidity()){form.reportValidity();return}button.disabled=true;button.setAttribute('aria-busy','true');status.textContent='Sending…';status.className='form-status';try{const response=await fetch(form.action,{method:'POST',body:new FormData(form),headers:{Accept:'application/json'}});const data=await response.json();if(!response.ok||!data.success)throw new Error(data.message||'Please try again.');status.textContent=cfg.formSuccessMessage||data.message;status.className='form-status success';form.reset()}catch(err){status.textContent=err.message||'Something went wrong. Please try again.';status.className='form-status error'}finally{button.disabled=false;button.removeAttribute('aria-busy')}}));
+  document.querySelectorAll('.contact-form').forEach(form=>form.addEventListener('submit',async e=>{
+    e.preventDefault();
+    const status=form.querySelector('.form-status'),button=form.querySelector('button[type=submit]');
+    if(!form.checkValidity()){form.reportValidity();return}
+    button.disabled=true;
+    button.setAttribute('aria-busy','true');
+    status.textContent='Sending...';
+    status.className='form-status';
+    try{
+      const endpoint=new URL(form.getAttribute('action')||form.action,window.location.href);
+      if(endpoint.pathname.endsWith('/contact.php')&&['5500','5501','5502'].includes(window.location.port)){
+        throw new Error('The form needs a PHP server. Open the site with php -S, not Live Server.');
+      }
+      const response=await fetch(form.action,{method:'POST',body:new FormData(form),headers:{Accept:'application/json'}});
+      const raw=(await response.text()).trim();
+      const data=raw?JSON.parse(raw):{};
+      if(!response.ok||!data.success)throw new Error(data.message||(response.status===405?'The form endpoint is not running PHP. Open the site through a PHP server.':'Please complete the form and try again.'));
+      status.textContent=cfg.formSuccessMessage||data.message||'Thank you. Your request has been received.';
+      status.className='form-status success';
+      form.reset();
+    }catch(err){
+      status.textContent=err.message&&err.name!=='SyntaxError'?err.message:'The form could not be sent. Please try again or email us directly.';
+      status.className='form-status error';
+    }finally{
+      button.disabled=false;
+      button.removeAttribute('aria-busy');
+    }
+  }));
 })();

@@ -1,39 +1,73 @@
 <?php
 declare(strict_types=1);
 
-header('Content-Type: application/json; charset=utf-8');
-
 const CONTACT_EMAIL = 'hello@roofly.network';
 
-if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
-    http_response_code(405);
-    echo json_encode(['success' => false, 'message' => 'Only POST requests are accepted.']);
+function send_json(bool $success, string $message, int $statusCode = 200): void
+{
+    http_response_code($statusCode);
+    header('Content-Type: application/json; charset=utf-8');
+    echo json_encode([
+        'success' => $success,
+        'message' => $message,
+    ], JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
     exit;
 }
 
-$fullName = trim((string)($_POST['full_name'] ?? ''));
-$email = trim((string)($_POST['email'] ?? ''));
-$service = trim((string)($_POST['service'] ?? ''));
-$message = trim((string)($_POST['message'] ?? ''));
-$consent = (string)($_POST['privacy_consent'] ?? '');
-$honeypot = trim((string)($_POST['website'] ?? ''));
+function field(string $name): string
+{
+    return trim((string)($_POST[$name] ?? ''));
+}
+
+if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+    send_json(false, 'Only POST requests are accepted.', 405);
+}
+
+$fullName = field('full_name');
+$email = field('email');
+$service = field('service');
+$message = field('message');
+$consent = field('privacy_consent');
+$honeypot = field('website');
 
 if ($honeypot !== '') {
-    echo json_encode(['success' => true, 'message' => 'Thanks.']);
-    exit;
+    send_json(true, 'Thank you. Your request has been received.');
 }
 
-if ($fullName === '' || mb_strlen($fullName) > 120 || !filter_var($email, FILTER_VALIDATE_EMAIL) || $service === '' || $message === '' || mb_strlen($message) > 5000 || $consent !== 'yes') {
-    http_response_code(422);
-    echo json_encode(['success' => false, 'message' => 'Please complete all required fields and try again.']);
-    exit;
+if (
+    $fullName === '' ||
+    strlen($fullName) > 120 ||
+    !filter_var($email, FILTER_VALIDATE_EMAIL) ||
+    $service === '' ||
+    $message === '' ||
+    strlen($message) > 5000 ||
+    $consent !== 'yes'
+) {
+    send_json(false, 'Please complete all required fields and try again.', 422);
 }
 
-$subject = 'New Roofly enquiry: ' . $service;
-$body = "Name: {$fullName}\nEmail: {$email}\nService: {$service}\n\nMessage:\n{$message}";
-$headers = "From: " . CONTACT_EMAIL . "\r\nReply-To: " . $email . "\r\nContent-Type: text/plain; charset=UTF-8\r\n";
+$safeName = str_replace(["\r", "\n"], ' ', $fullName);
+$safeEmail = filter_var($email, FILTER_SANITIZE_EMAIL);
+$safeService = str_replace(["\r", "\n"], ' ', $service);
+$subject = 'New Roofly enquiry: ' . $safeService;
+$body = implode("\n", [
+    'New enquiry from Roofly',
+    '',
+    'Name: ' . $safeName,
+    'Email: ' . $safeEmail,
+    'Service: ' . $safeService,
+    '',
+    'Message:',
+    $message,
+]);
+$headers = [
+    'From: Roofly <' . CONTACT_EMAIL . '>',
+    'Reply-To: ' . $safeName . ' <' . $safeEmail . '>',
+    'Content-Type: text/plain; charset=UTF-8',
+];
 
-// On a configured host this sends the enquiry. The JSON response keeps the browser flow asynchronous.
-@mail(CONTACT_EMAIL, $subject, $body, $headers);
+if (PHP_SAPI !== 'cli' && PHP_SAPI !== 'cli-server') {
+    @mail(CONTACT_EMAIL, $subject, $body, implode("\r\n", $headers));
+}
 
-echo json_encode(['success' => true, 'message' => 'Your request has been received.']);
+send_json(true, 'Thank you. Your request has been received.');

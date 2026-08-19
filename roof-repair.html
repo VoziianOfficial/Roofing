@@ -11,6 +11,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
 </head>
 
 <body><a class="skip-link" href="#main">Skip to content</a>
@@ -31,26 +32,61 @@
                 <h1 class="h2" data-aos="fade-up" data-aos-delay="80" style="margin-top:24px">Roof repair.<br>Made clear.</h1>
             </div>
         </section>
-        <section class="service-content">
-            <div class="container service-detail">
-                <div data-aos="fade-up">
-                    <div class="eyebrow">Roof repair</div>
-                    <p class="small" style="margin-top:24px">For leaks, damage, wear, and the issues that cannot wait.
-                    </p>
+        <section class="service-content service-showcase">
+            <div class="container service-showcase__hero service-showcase__hero--repair">
+                <div class="service-showcase__hero-copy" data-aos="fade-up">
+                    <div class="service-showcase__label">— Roof Repair</div>
+                    <h2>Get to know the repair path.</h2>
                 </div>
-                <div class="service-detail__body" data-aos="fade-up">
-                    <p>Roof repair can mean a focused fix or the first step in understanding a larger issue. Roofly
-                        helps you organize what you know, find providers who handle the right kind of work, and ask
-                        better questions before moving ahead.</p>
-                    <p>Use an initial conversation to clarify the visible symptom, the likely cause, the urgency, and
-                        what a provider can inspect or document for you.</p>
-                    <ul class="service-detail__list">
-                        <li>Active leaks or water marks <span>01</span></li>
-                        <li>Storm or impact damage <span>02</span></li>
-                        <li>Worn flashing, vents, or seals <span>03</span></li>
-                        <li>Inspection after a concern <span>04</span></li>
-                    </ul><a class="button button--coral" href="index.html#contact" style="margin-top:32px">Find a repair
-                        provider <span class="arrow">↗</span></a>
+            </div>
+            <div class="container service-showcase__grid">
+                <div class="service-showcase__media" data-aos="fade-up">
+                    <div class="swiper service-gallery-swiper" aria-label="Roof repair photo slider">
+                        <div class="swiper-wrapper">
+                            <figure class="swiper-slide service-gallery-slide" data-caption-label="01" data-caption-title="Find the Source" data-caption-text="Start with the visible symptom, then trace the flashing, vents, shingles, and nearby roof details before the repair scope is set.">
+                                <div class="service-gallery-photo service-gallery-photo--one" role="img" aria-label="Roofer fastening metal roof panels"></div>
+                            </figure>
+                            <figure class="swiper-slide service-gallery-slide" data-caption-label="02" data-caption-title="Document the Detail" data-caption-text="Close photos and clear notes help separate surface wear from urgent water-entry issues before the first provider call.">
+                                <div class="service-gallery-photo service-gallery-photo--two" role="img" aria-label="Close inspection of roof flashing and shingles"></div>
+                            </figure>
+                            <figure class="swiper-slide service-gallery-slide" data-caption-label="03" data-caption-title="Confirm the Fix" data-caption-text="A good repair conversation should clarify the cause, the materials involved, and the follow-up needed after the work is complete.">
+                                <div class="service-gallery-photo service-gallery-photo--three" role="img" aria-label="Roofing team installing new shingles"></div>
+                            </figure>
+                        </div>
+                    </div>
+                    <div class="service-slider-controls">
+                        <button class="service-slider-button service-slider-prev" type="button" aria-label="Previous repair slide">←</button>
+                        <div class="service-slider-pagination"></div>
+                        <button class="service-slider-button service-slider-next" type="button" aria-label="Next repair slide">→</button>
+                    </div>
+                    <div class="service-gallery-caption">
+                        <span>01</span>
+                        <h3>Repair Starts With Clear Evidence</h3>
+                        <p>Track the symptom, inspect the surrounding detail, and define what needs immediate attention before a provider conversation begins.</p>
+                    </div>
+                </div>
+                <div class="service-tabs" data-aos="fade-up" data-aos-delay="80">
+                    <div class="service-tabs__nav" role="tablist" aria-label="Roof repair details">
+                        <button class="is-active" type="button" role="tab" aria-selected="true" aria-controls="repair-tab-overview" id="repair-tab-btn-overview">Overview</button>
+                        <button type="button" role="tab" aria-selected="false" aria-controls="repair-tab-priority" id="repair-tab-btn-priority">Priority</button>
+                        <button type="button" role="tab" aria-selected="false" aria-controls="repair-tab-result" id="repair-tab-btn-result">Result</button>
+                    </div>
+                    <div class="service-tabs__panels">
+                        <article class="service-tabs__panel is-active" id="repair-tab-overview" role="tabpanel" aria-labelledby="repair-tab-btn-overview">
+                            <p>Roof repair can mean a focused fix or the first step in understanding a larger issue. Roofly helps you organize what you know, find providers who handle the right kind of work, and ask sharper questions before moving ahead.</p>
+                        </article>
+                        <article class="service-tabs__panel" id="repair-tab-priority" role="tabpanel" aria-labelledby="repair-tab-btn-priority" hidden>
+                            <p>Start with active leaks, water marks, damaged flashing, loose vents, storm impact, and any spot where moisture can move into the home. Clear notes and photos make the first call more useful.</p>
+                        </article>
+                        <article class="service-tabs__panel" id="repair-tab-result" role="tabpanel" aria-labelledby="repair-tab-btn-result" hidden>
+                            <p>A stronger repair brief helps the provider explain the cause, likely scope, inspection needs, and the next practical step without turning a small concern into guesswork.</p>
+                        </article>
+                    </div>
+                    <div class="service-metrics">
+                        <div class="service-metric"><div><strong>Leak Source Review</strong><span>75%</span></div><i style="--value:75%"></i></div>
+                        <div class="service-metric"><div><strong>Flashing and Sealing</strong><span>85%</span></div><i style="--value:85%"></i></div>
+                        <div class="service-metric"><div><strong>Follow-up Confidence</strong><span>95%</span></div><i style="--value:95%"></i></div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -89,6 +125,7 @@
     </footer>
     <script src="config/config.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="assets/js/app.js"></script>
 </body>
 

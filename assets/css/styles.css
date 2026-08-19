@@ -5,6 +5,7 @@
 .provider-swiper .swiper-pagination-bullet:hover{background:rgba(16,23,34,.34);transform:translateY(-1px)}
 .provider-swiper .swiper-pagination-bullet-active{width:54px;background:var(--coral)}
 
+.providers>.container{width:min(calc(100% - 64px),1560px)}
 .provider-swiper .swiper-wrapper{align-items:stretch}
 .provider-swiper .swiper-slide.provider-card,
 .provider-swiper .swiper-slide.provider-card.swiper-slide-prev,

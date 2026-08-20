@@ -436,7 +436,7 @@ img {
 .hero__media {
   position: absolute;
   inset: 0;
-  background-image: linear-gradient(90deg, rgba(7, 13, 24, .88) 0%, rgba(7, 13, 24, .66) 42%, rgba(7, 13, 24, .2) 100%), url('../images/hero-roof.png');
+  background-image: linear-gradient(90deg, rgba(7, 13, 24, .88) 0%, rgba(7, 13, 24, .66) 42%, rgba(7, 13, 24, .2) 100%), url('../images/hero-roof.webp');
   background-size: cover;
   background-position: center
 }
@@ -721,7 +721,7 @@ img {
   grid-template-columns: repeat(3, 1fr);
   align-items: start;
   gap: 28px;
-  background: linear-gradient(rgba(13, 26, 45, .75), rgba(13, 26, 45, .87)), url('../images/hero-roof.png') center/cover;
+  background: linear-gradient(rgba(13, 26, 45, .75), rgba(13, 26, 45, .87)), url('../images/hero-roof.webp') center/cover;
   color: #fff
 }
 
@@ -939,7 +939,7 @@ img {
   isolation: isolate;
   overflow: hidden;
   --parallax-shift: 0px;
-  background: linear-gradient(rgba(12, 19, 32, .62), rgba(12, 19, 32, .62)), url('../images/parallax-tiles.png') center/cover
+  background: linear-gradient(rgba(12, 19, 32, .62), rgba(12, 19, 32, .62)), url('../images/parallax-tiles.webp') center/cover
 }
 
 .parallax-image-stack {
@@ -1457,7 +1457,7 @@ img {
 
 .service-hero {
   min-height: 660px;
-  background: linear-gradient(90deg, rgba(7, 13, 24, .88), rgba(7, 13, 24, .25)), url('../images/hero-roof.png') center/cover;
+  background: linear-gradient(90deg, rgba(7, 13, 24, .88), rgba(7, 13, 24, .25)), url('../images/hero-roof.webp') center/cover;
   color: #fff;
   display: flex;
   align-items: end;
@@ -2644,11 +2644,11 @@ img {
 }
 
 .service-hero--repair {
-  background-image: linear-gradient(90deg, rgba(7, 13, 24, .88), rgba(7, 13, 24, .25)), url('../images/provider-quote-roof.jpg');
+  background-image: linear-gradient(90deg, rgba(7, 13, 24, .88), rgba(7, 13, 24, .25)), url('../images/provider-quote-roof.webp');
 }
 
 .service-hero--replacement {
-  background-image: linear-gradient(90deg, rgba(7, 13, 24, .88), rgba(7, 13, 24, .25)), url('../images/provider-residential-roof.jpg');
+  background-image: linear-gradient(90deg, rgba(7, 13, 24, .88), rgba(7, 13, 24, .25)), url('../images/provider-residential-roof.webp');
 }
 
 @media (max-width:900px) {
@@ -3044,7 +3044,7 @@ img {
   position: relative;
   min-width: 0;
   min-height: clamp(720px, 40vw, 1248px);
-  background-image: linear-gradient(90deg, rgba(23, 31, 57, .68), rgba(12, 27, 55, .76)), url('../images/process-roof-parallax.png');
+  background-image: linear-gradient(90deg, rgba(23, 31, 57, .68), rgba(12, 27, 55, .76)), url('../images/process-roof-parallax.webp');
   background-position: center;
   background-size: cover;
   background-attachment: fixed;
@@ -3244,7 +3244,7 @@ img {
   display: grid;
   place-items: center;
   min-height: clamp(190px, 15vw, 260px);
-  background-image: linear-gradient(rgba(9, 20, 34, .72), rgba(9, 20, 34, .72)), url('../images/service-parallax-main.jpg');
+  background-image: linear-gradient(rgba(9, 20, 34, .72), rgba(9, 20, 34, .72)), url('../images/service-parallax-main.webp');
   background-position: center;
   background-size: cover;
   background-attachment: fixed;
@@ -3304,17 +3304,17 @@ img {
 }
 
 .service-gallery-photo--one {
-  background-image: url('../images/service-slide-01.jpg');
+  background-image: url('../images/service-slide-01.webp');
   background-position: center
 }
 
 .service-gallery-photo--two {
-  background-image: url('../images/service-slide-02.jpg');
+  background-image: url('../images/service-slide-02.webp');
   background-position: center
 }
 
 .service-gallery-photo--three {
-  background-image: url('../images/service-slide-03.jpg');
+  background-image: url('../images/service-slide-03.webp');
   background-position: center
 }
 
@@ -3578,7 +3578,7 @@ img {
 .service-insight__parallax {
   height: clamp(420px, 31vw, 660px);
   border-radius: 8px;
-  background-image: url('../images/service-insight-parallax.png');
+  background-image: url('../images/service-insight-parallax.webp');
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
@@ -6197,7 +6197,6 @@ img {
 
 .testimonial-card {
   border-radius: var(--radius-lg);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .5), 0 30px 60px -30px rgba(16, 23, 34, .3)
 }
 
 .testimonial-card__icon {

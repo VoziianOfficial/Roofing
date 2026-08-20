@@ -3,22 +3,21 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Privacy Policy &mdash; Roofly</title>
-  <meta name="description" content="Roofly privacy policy.">
-  <link rel="icon" href="assets/images/favicon.svg">
+  <title></title>
+  <meta name="description" content="Privacy policy.">
   <link rel="stylesheet" href="assets/css/styles.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700;800&display=swap" rel="stylesheet">
 </head>
-<body>
+<body data-page="privacy">
   <header class="site-header">
     <div class="container nav">
-      <a class="brand" href="index.html"><img data-config-logo src="assets/images/logo-mark.svg" alt=""><span data-site-name>Roofly</span></a>
+      <a class="brand" href="index.html"><img data-config-logo src="assets/images/logo-mark.svg" alt=""><span data-site-name>{siteName}</span></a>
       <nav class="nav__links">
-        <a href="index.html">Home</a>
-        <a href="index.html#about">About</a>
+        <a href="index.html" data-nav-label="home"></a>
+        <a href="index.html#about" data-nav-label="about"></a>
         <div class="nav__item nav__item--has-menu">
-          <a class="nav__trigger" href="index.html#services" aria-haspopup="true" aria-expanded="false">Services</a>
+          <a class="nav__trigger" href="index.html#services" data-nav-label="services" aria-haspopup="true" aria-expanded="false">Services</a>
           <div class="nav-dropdown" role="menu" aria-label="Services navigation">
             <a href="roof-replacement.html" role="menuitem"><span class="nav-dropdown__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 11.5 12 4l9 7.5" /><path d="M6 10.5V20h12v-9.5" /><path d="M9.5 20v-5h5v5" /></svg></span><span class="nav-dropdown__copy"><span class="nav-dropdown__title">Roof replacement</span><small>Full refresh and planning</small></span></a>
             <a href="roof-repair.html" role="menuitem"><span class="nav-dropdown__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m4 13 7-7 3 3 6-6" /><path d="m14 9 5 5" /><path d="m3 21 6-6" /><path d="m7 17 2 2" /></svg></span><span class="nav-dropdown__copy"><span class="nav-dropdown__title">Roof repair</span><small>Leaks, wear, and damage</small></span></a>
@@ -27,7 +26,7 @@
             <a href="index.html#contact" role="menuitem"><span class="nav-dropdown__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 5h16v14H4z" /><path d="m4 7 8 6 8-6" /></svg></span><span class="nav-dropdown__copy"><span class="nav-dropdown__title">Contact form</span><small>Send your roofing request</small></span></a>
           </div>
         </div>
-        <a href="index.html#contact">Contact</a>
+        <a href="index.html#contact" data-nav-label="contact"></a>
       </nav>
       <a class="button button--coral nav__cta" href="index.html#contact">Start a match <span class="arrow">↗</span></a>
       <button class="menu-toggle" aria-label="Open menu" aria-expanded="false">☰</button>
@@ -37,7 +36,7 @@
     <section class="legal-hero">
       <div class="container">
         <h1 class="h2">Privacy Policy</h1>
-        <p class="lede" style="margin-top:24px">How <span data-site-name>Roofly</span> handles information shared through this platform.</p>
+        <p class="lede" style="margin-top:24px">How <span data-site-name>{siteName}</span> handles information shared through this platform.</p>
       </div>
     </section>
     <div class="legal-layout container">
@@ -59,7 +58,7 @@
       <article class="legal-content">
         <p class="small">Last updated: August 19, 2026</p>
         <h2 id="privacy-scope">1. About this policy</h2>
-        <p>This Privacy Policy explains how <span data-legal-name>Roofly Network</span> handles information collected through this website. Roofly is an independent discovery platform that helps users find and connect with roofing providers. Roofly does not perform roofing services.</p>
+        <p>This Privacy Policy explains how <span data-legal-name>{legalName}</span> handles information collected through this website. {siteName} is an independent discovery platform that helps users find and connect with roofing providers. {siteName} does not perform roofing services.</p>
         <h2 id="privacy-information">2. Information you choose to share</h2>
         <p>If you use our contact form, we may collect your name, email address, selected service category, message, and privacy consent. We use this information to respond to your enquiry and help route it toward a relevant provider conversation.</p>
         <h2 id="privacy-automatic">3. Information collected automatically</h2>
@@ -79,16 +78,16 @@
         <h2 id="privacy-children">10. Children</h2>
         <p>This website is intended for adults looking for roofing information or provider connections. We do not knowingly collect information from children through the enquiry form.</p>
         <h2 id="privacy-contact">11. Updates and contact</h2>
-        <p>We may update this policy as the website, provider flow, or technology changes. Questions or privacy requests can be sent to <a data-site-email href="mailto:hello@roofly.network" style="text-decoration:underline">hello@roofly.network</a>.</p>
+        <p>We may update this policy as the website, provider flow, or technology changes. Questions or privacy requests can be sent to <a data-site-email href="" style="text-decoration:underline"></a>.</p>
       </article>
     </div>
   </main>
   <footer class="site-footer">
     <div class="container">
       <div class="footer-grid">
-        <div><a class="brand" href="index.html"><img data-config-logo src="assets/images/logo-mark.svg" alt=""><span data-site-name>Roofly</span></a><p class="footer__about">A focused, independent way to discover roofing providers and make more informed connections.</p><p class="footer__disclaimer" data-disclaimer></p></div>
-        <div><h2 class="footer__title">Explore</h2><nav class="footer__links"><a href="index.html">Home</a><a href="index.html#about">About</a><a href="index.html#services">Services</a><a href="index.html#contact">Contact</a></nav></div>
-        <div><h2 class="footer__title">Legal & contact</h2><nav class="footer__links"><a data-site-email href="mailto:hello@roofly.network">hello@roofly.network</a><a href="privacy-policy.html">Privacy Policy</a><a href="terms-of-service.html">Terms of Service</a><a href="cookie-policy.html">Cookie Policy</a></nav></div>
+        <div><a class="brand" href="index.html"><img data-config-logo src="assets/images/logo-mark.svg" alt=""><span data-site-name>{siteName}</span></a><p class="footer__about">A focused, independent way to discover roofing providers and make more informed connections.</p><p class="footer__disclaimer" data-disclaimer></p></div>
+        <div><h2 class="footer__title">Explore</h2><nav class="footer__links"><a href="index.html" data-nav-label="home"></a><a href="index.html#about" data-nav-label="about"></a><a href="index.html#services" data-nav-label="services"></a><a href="index.html#contact" data-nav-label="contact"></a></nav></div>
+        <div><h2 class="footer__title">Legal & contact</h2><nav class="footer__links"><a data-site-email href=""></a><a href="privacy-policy.html">Privacy Policy</a><a href="terms-of-service.html">Terms of Service</a><a href="cookie-policy.html">Cookie Policy</a></nav></div>
       </div>
       <div class="footer-bottom"><span data-copyright></span><span>Independent platform &middot; Provider conversations happen directly</span></div>
     </div>

@@ -1,6 +1,7 @@
 <?php
 declare(strict_types=1);
 
+// Change the recipient for all contact form submissions in this one place.
 const CONTACT_EMAIL = 'hello@roofly.network';
 
 function send_json(bool $success, string $message, int $statusCode = 200): void
@@ -49,9 +50,9 @@ if (
 $safeName = str_replace(["\r", "\n"], ' ', $fullName);
 $safeEmail = filter_var($email, FILTER_SANITIZE_EMAIL);
 $safeService = str_replace(["\r", "\n"], ' ', $service);
-$subject = 'New Roofly enquiry: ' . $safeService;
+$subject = 'New website enquiry: ' . $safeService;
 $body = implode("\n", [
-    'New enquiry from Roofly',
+    'New website enquiry',
     '',
     'Name: ' . $safeName,
     'Email: ' . $safeEmail,
@@ -61,7 +62,7 @@ $body = implode("\n", [
     $message,
 ]);
 $headers = [
-    'From: Roofly <' . CONTACT_EMAIL . '>',
+    'From: Website <' . CONTACT_EMAIL . '>',
     'Reply-To: ' . $safeName . ' <' . $safeEmail . '>',
     'Content-Type: text/plain; charset=UTF-8',
 ];

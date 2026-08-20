@@ -1,16 +1,45 @@
 (function(){
   const cfg=window.SITE_CONFIG||{};
-  document.querySelectorAll('[data-site-name]').forEach(el=>el.textContent=cfg.siteName||'Roofly');
-  document.querySelectorAll('[data-legal-name]').forEach(el=>el.textContent=cfg.legalName||cfg.siteName||'Roofly Network');
-  document.querySelectorAll('[data-site-email]').forEach(el=>{el.textContent=cfg.email||''; if(el.tagName==='A') el.href='mailto:'+cfg.email});
-  document.querySelectorAll('[data-disclaimer]').forEach(el=>el.textContent=cfg.disclaimer||'');
-  document.querySelectorAll('[data-copyright]').forEach(el=>el.textContent=cfg.copyright||'');
-  document.querySelectorAll('[data-config-logo]').forEach(el=>el.src=cfg.logo||'assets/images/logo-mark.svg');
-  const favicon=document.querySelector('link[rel="icon"]'); if(favicon) favicon.href=cfg.favicon||'assets/images/favicon.svg';
+  const interpolateConfigText=text=>String(text||'')
+    .replaceAll('{siteName}', cfg.siteName||'')
+    .replaceAll('{legalName}', cfg.legalName||cfg.siteName||'');
+  const siteName=interpolateConfigText(cfg.siteName);
+  const legalName=interpolateConfigText(cfg.legalName||cfg.siteName);
+  const email=cfg.email||'';
+  const interpolateNodeText=root=>{
+    const walker=document.createTreeWalker(root,NodeFilter.SHOW_TEXT);
+    const nodes=[];
+    while(walker.nextNode())nodes.push(walker.currentNode);
+    nodes.forEach(node=>{
+      if(node.nodeValue&&node.nodeValue.includes('{'))node.nodeValue=interpolateConfigText(node.nodeValue);
+    });
+  };
+  if(document.body)interpolateNodeText(document.body);
+  document.querySelectorAll('[aria-label*="{"],[content*="{"],[placeholder*="{"]').forEach(el=>{
+    ['aria-label','content','placeholder'].forEach(attr=>{
+      if(el.hasAttribute(attr))el.setAttribute(attr,interpolateConfigText(el.getAttribute(attr)));
+    });
+  });
+  document.querySelectorAll('[data-site-name]').forEach(el=>el.textContent=siteName);
+  document.querySelectorAll('[data-legal-name]').forEach(el=>el.textContent=legalName);
+  document.querySelectorAll('[data-config-text]').forEach(el=>el.textContent=interpolateConfigText(el.dataset.configText));
+  document.querySelectorAll('[data-config-aria-label]').forEach(el=>el.setAttribute('aria-label',interpolateConfigText(el.dataset.configAriaLabel)));
+  document.querySelectorAll('[data-config-content]').forEach(el=>el.setAttribute('content',interpolateConfigText(el.dataset.configContent)));
+  document.querySelectorAll('[data-site-email]').forEach(el=>{el.textContent=email; if(el.tagName==='A') el.href='mailto:'+email});
+  document.querySelectorAll('[data-disclaimer]').forEach(el=>el.textContent=interpolateConfigText(cfg.disclaimer||''));
+  document.querySelectorAll('[data-copyright]').forEach(el=>el.textContent=interpolateConfigText(cfg.copyright||''));
+  document.querySelectorAll('[data-config-logo]').forEach(el=>el.src=cfg.logo||'');
+  let favicon=document.querySelector('link[rel="icon"]');
+  if(!favicon){favicon=document.createElement('link');favicon.rel='icon';document.head.appendChild(favicon)}
+  favicon.href=cfg.favicon||'';
+  const pageKey=document.body&&document.body.dataset.page;
+  if(pageKey&&cfg.pageTitles&&cfg.pageTitles[pageKey]){
+    document.title=`${siteName} — ${interpolateConfigText(cfg.pageTitles[pageKey])}`;
+  }
   document.querySelectorAll('[data-nav-label]').forEach(el=>{const key=el.dataset.navLabel;if(cfg.nav&&cfg.nav[key])el.textContent=cfg.nav[key]});
   const header=document.querySelector('.site-header');
   window.addEventListener('scroll',()=>{if(header) header.classList.toggle('is-scrolled',window.scrollY>30)}, {passive:true});
-  const consentKey='rooflyPolicyConsent';
+  const consentKey='sitePolicyConsent';
   const getConsent=()=>{try{return localStorage.getItem(consentKey)}catch(e){return null}};
   const setConsent=()=>{try{localStorage.setItem(consentKey,'accepted')}catch(e){}};
   if(!getConsent()){
@@ -27,8 +56,8 @@
     const email=document.createElement('a');
     email.className='nav__mobile-email';
     email.setAttribute('data-site-email','');
-    email.href='mailto:'+(cfg.email||'hello@roofly.network');
-    email.textContent=cfg.email||'hello@roofly.network';
+    email.href='mailto:'+(cfg.email||'');
+    email.textContent=cfg.email||'';
     links.appendChild(email);
   }
   if(menu&&links){const closeMenu=()=>{links.classList.remove('is-open');document.body.classList.remove('is-locked');menu.setAttribute('aria-expanded','false');menu.setAttribute('aria-label','Open menu')};menu.addEventListener('click',()=>{const open=links.classList.toggle('is-open');menu.setAttribute('aria-expanded',open);menu.setAttribute('aria-label',open?'Close menu':'Open menu');document.body.classList.toggle('is-locked',open)});links.addEventListener('click',event=>{if(event.target===links)closeMenu()});document.addEventListener('keydown',event=>{if(event.key==='Escape'&&links.classList.contains('is-open'))closeMenu()});links.querySelectorAll('a').forEach(a=>a.addEventListener('click',closeMenu))}

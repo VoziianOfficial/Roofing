@@ -2608,16 +2608,19 @@ img {
 }
 
 .service-hero .h2 {
-  max-width: 860px;
-  font-size: clamp(2.75rem, 5.4vw, 6.2rem);
+  max-width: none;
+  margin: 0 auto;
+  font-size: clamp(2.5rem, 4.2vw, 4.8rem);
   line-height: .98;
   letter-spacing: .005em;
-  text-wrap: balance;
+  text-align: center;
+  white-space: nowrap;
 }
 
 .service-hero {
-  min-height: 520px;
-  padding: 132px 0 68px;
+  min-height: 390px;
+  align-items: center;
+  padding: 104px 0 58px;
 }
 
 .service-hero--repair {
@@ -2630,15 +2633,19 @@ img {
 
 @media (max-width:900px) {
   .service-hero {
-    min-height: 480px;
-    padding: 118px 0 62px
+    min-height: 340px;
+    padding: 92px 0 48px
+  }
+
+  .service-hero .h2 {
+    font-size: clamp(2rem, 5.6vw, 3.15rem)
   }
 }
 
 @media (max-width:560px) {
   .service-hero {
-    min-height: 420px;
-    padding: 104px 0 54px
+    min-height: 300px;
+    padding: 84px 0 42px
   }
 
   .hero__title {
@@ -2646,7 +2653,10 @@ img {
   }
 
   .service-hero .h2 {
-    font-size: clamp(2.25rem, 11vw, 2.85rem)
+    max-width: 360px;
+    font-size: clamp(2rem, 9vw, 2.65rem);
+    text-wrap: balance;
+    white-space: normal
   }
 }
 

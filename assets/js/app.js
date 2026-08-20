@@ -43,7 +43,88 @@
   if(window.Swiper) document.querySelectorAll('.facts-swiper').forEach(swiper=>{const shell=swiper.closest('.facts-shell'),setFactsHeight=gallery=>requestAnimationFrame(()=>{const styles=getComputedStyle(swiper),pad=parseFloat(styles.paddingTop)+parseFloat(styles.paddingBottom),space=gallery.params.spaceBetween||0;let total=0;for(let i=0;i<3;i++){const slide=gallery.slides[(gallery.activeIndex+i)%gallery.slides.length];if(slide)total+=slide.offsetHeight}if(total)swiper.style.height=Math.ceil(total+space*2+pad)+'px'});new Swiper(swiper,{direction:'vertical',loop:true,speed:650,slidesPerView:'auto',spaceBetween:18,grabCursor:true,keyboard:{enabled:true},autoplay:{delay:4800,disableOnInteraction:false},navigation:{prevEl:shell&&shell.querySelector('[data-facts-prev]'),nextEl:shell&&shell.querySelector('[data-facts-next]')},on:{init:setFactsHeight,slideChangeTransitionStart:setFactsHeight,resize:setFactsHeight}})});
   document.querySelectorAll('.service-tabs').forEach(tabs=>{const buttons=[...tabs.querySelectorAll('[role="tab"]')],panels=[...tabs.querySelectorAll('[role="tabpanel"]')];buttons.forEach(button=>button.addEventListener('click',()=>{buttons.forEach(item=>{const active=item===button;item.classList.toggle('is-active',active);item.setAttribute('aria-selected',active?'true':'false')});panels.forEach(panel=>{const active=panel.id===button.getAttribute('aria-controls');panel.hidden=!active;panel.classList.toggle('is-active',active)})}))});
   document.querySelectorAll('.accordion__button').forEach(button=>button.addEventListener('click',()=>{const item=button.closest('.accordion__item');const open=item.classList.toggle('is-open');button.setAttribute('aria-expanded',open)}));
-  const parallaxPanels=document.querySelectorAll('.parallax__frame,.process-photo,.service-showcase__hero,.service-insight__parallax'); if(parallaxPanels.length&&window.matchMedia('(min-width: 901px)').matches){window.addEventListener('scroll',()=>{parallaxPanels.forEach(panel=>{const rect=panel.getBoundingClientRect();const shift=(window.innerHeight/2-(rect.top+rect.height/2))*.08;panel.style.backgroundPosition=`center calc(50% + ${shift}px)`})},{passive:true})}
+  const parallaxImages=['assets/images/parallax-tiles.png','assets/images/process-roof-parallax.png','assets/images/service-parallax-main.jpg','assets/images/service-insight-parallax.png'];
+  const parallaxBg=src=>`linear-gradient(rgba(12, 19, 32, .62), rgba(12, 19, 32, .62)), url("${src}")`;
+  const reducedMotion=window.matchMedia('(prefers-reduced-motion: reduce)');
+  document.querySelectorAll('.parallax__frame').forEach((frame,frameIndex)=>{
+    if(!parallaxImages.length)return;
+    let currentIndex=0,stripCount=0,isAnimating=false,transitionTimer=0;
+    const svgNS='http://www.w3.org/2000/svg';
+    const clipId=`parallaxRevealClip${frameIndex}${Math.random().toString(36).slice(2)}`;
+    const stack=document.createElement('div');
+    const currentLayer=document.createElement('div');
+    const nextLayer=document.createElement('div');
+    const maskSvg=document.createElementNS(svgNS,'svg');
+    const defs=document.createElementNS(svgNS,'defs');
+    const clipPath=document.createElementNS(svgNS,'clipPath');
+    stack.className='parallax-image-stack';
+    currentLayer.className='parallax-image parallax-image--current';
+    nextLayer.className='parallax-image parallax-image--next';
+    maskSvg.classList.add('parallax-reveal-mask');
+    maskSvg.setAttribute('aria-hidden','true');
+    maskSvg.setAttribute('focusable','false');
+    clipPath.setAttribute('id',clipId);
+    clipPath.setAttribute('clipPathUnits','objectBoundingBox');
+    defs.appendChild(clipPath);
+    maskSvg.appendChild(defs);
+    stack.append(currentLayer,nextLayer);
+    frame.prepend(stack,maskSvg);
+    nextLayer.style.clipPath=`url(#${clipId})`;
+    nextLayer.style.webkitClipPath=`url(#${clipId})`;
+    currentLayer.style.backgroundImage=parallaxBg(parallaxImages[currentIndex]);
+    parallaxImages.forEach(src=>{const image=new Image();image.src=src});
+    const getStripCount=()=>window.matchMedia('(max-width: 640px)').matches?6:window.matchMedia('(max-width: 1024px)').matches?9:12;
+    const buildMask=()=>{
+      const nextCount=getStripCount();
+      if(stripCount===nextCount&&clipPath.children.length)return;
+      stripCount=nextCount;
+      clipPath.textContent='';
+      const overlap=.002;
+      for(let i=0;i<stripCount;i++){
+        const strip=document.createElementNS(svgNS,'rect');
+        const width=1/stripCount+overlap;
+        strip.classList.add('parallax-mask-strip');
+        strip.setAttribute('x',Math.max(0,i/stripCount-overlap/2));
+        strip.setAttribute('y','0');
+        strip.setAttribute('width',width);
+        strip.setAttribute('height','1');
+        clipPath.appendChild(strip);
+      }
+    };
+    const scheduleTransition=delay=>{
+      window.clearTimeout(transitionTimer);
+      transitionTimer=window.setTimeout(runTransition,delay);
+    };
+    const finishTransition=nextIndex=>{
+      currentIndex=nextIndex;
+      currentLayer.style.backgroundImage=parallaxBg(parallaxImages[currentIndex]);
+      frame.classList.remove('is-revealing-image');
+      nextLayer.style.backgroundImage='';
+      clipPath.querySelectorAll('.parallax-mask-strip').forEach(strip=>{strip.getAnimations().forEach(animation=>animation.cancel())});
+      isAnimating=false;
+      scheduleTransition(3800);
+    };
+    const runTransition=()=>{
+      if(isAnimating){
+        scheduleTransition(900);
+        return;
+      }
+      if(reducedMotion.matches)return;
+      buildMask();
+      const nextIndex=(currentIndex+1)%parallaxImages.length;
+      const strips=[...clipPath.querySelectorAll('.parallax-mask-strip')];
+      const duration=680,stagger=42;
+      isAnimating=true;
+      nextLayer.style.backgroundImage=parallaxBg(parallaxImages[nextIndex]);
+      frame.classList.add('is-revealing-image');
+      const animations=strips.map((strip,i)=>strip.animate([{transform:'scaleX(0)'},{transform:'scaleX(1)'}],{duration,delay:i*stagger,easing:'cubic-bezier(.65, 0, .35, 1)',fill:'forwards'}));
+      Promise.allSettled(animations.map(animation=>animation.finished)).then(()=>finishTransition(nextIndex));
+    };
+    buildMask();
+    if(!reducedMotion.matches)scheduleTransition(4200);
+    window.addEventListener('resize',()=>{if(!isAnimating)buildMask()},{passive:true});
+  });
+  const parallaxPanels=document.querySelectorAll('.parallax__frame,.process-photo,.service-showcase__hero,.service-insight__parallax'); if(parallaxPanels.length&&window.matchMedia('(min-width: 901px)').matches){const syncParallax=()=>{parallaxPanels.forEach(panel=>{const rect=panel.getBoundingClientRect();const shift=(window.innerHeight/2-(rect.top+rect.height/2))*.08;if(panel.classList.contains('parallax__frame')){panel.style.setProperty('--parallax-shift',`${shift}px`)}else{panel.style.backgroundPosition=`center calc(50% + ${shift}px)`}})};syncParallax();window.addEventListener('scroll',syncParallax,{passive:true})}
   document.querySelectorAll('.contact-form').forEach(form=>form.addEventListener('submit',async e=>{
     e.preventDefault();
     const status=form.querySelector('.form-status'),button=form.querySelector('button[type=submit]');

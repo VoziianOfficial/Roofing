@@ -5047,13 +5047,15 @@ img {
 }
 
 .roof-reasons__shell {
+  position: relative;
   width: min(calc(100% - 64px), 1480px);
   margin: 0 auto;
   padding: clamp(54px, 6vw, 92px) clamp(28px, 5.5vw, 92px) clamp(46px, 5.2vw, 78px);
   background: var(--cream);
   border: 1px solid rgba(16, 23, 34, .08);
   border-radius: 28px;
-  box-shadow: 0 28px 72px -46px rgba(16, 23, 34, .35)
+  box-shadow: 0 28px 72px -46px rgba(16, 23, 34, .35);
+  overflow: visible
 }
 
 .roof-reasons__main {
@@ -5129,9 +5131,11 @@ img {
 .roof-reasons__media {
   position: relative;
   align-self: start;
-  width: 100%;
+  justify-self: end;
+  z-index: 2;
+  width: calc(100% + clamp(86px, 11vw, 190px));
   min-height: clamp(320px, 28vw, 450px);
-  margin: clamp(-96px, -5vw, -42px) 0 0;
+  margin: clamp(-300px, -18vw, -218px) clamp(-144px, -8vw, -82px) 0 0;
   overflow: hidden;
   border-radius: 28px;
   background: var(--paper);
@@ -5332,7 +5336,8 @@ img {
 
   .roof-reasons__media {
     order: -1;
-    margin-top: 0;
+    width: calc(100% + 56px);
+    margin: -88px -28px 0;
     min-height: clamp(320px, 52vw, 520px)
   }
 
@@ -5443,6 +5448,8 @@ img {
   }
 
   .roof-reasons__media {
+    width: calc(100% + 36px);
+    margin: -36px -18px 0;
     min-height: 260px;
     border-radius: 18px
   }

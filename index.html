@@ -491,7 +491,7 @@
       </div>
     </section>
 
-    <section class="section">
+    <section class="section faq-section">
       <div class="container faq">
         <div class="faq__intro" data-aos="fade-up">
           <h2 class="h2">Roof FAQs.</h2>
@@ -574,34 +574,123 @@
     </section>
     <section class="section contact" id="contact">
       <div class="container contact-grid">
-        <div class="contact__copy" data-aos="fade-up">
-          <h2 class="h2">Get in touch</h2>
-          <p>Tell us what you are looking for and we will help point your search in a more useful direction.</p><a
-            class="contact__email" data-site-email href="mailto:hello@roofly.network">hello@roofly.network</a>
+        <div class="contact-facts">
+          <span class="eyebrow" data-aos="fade-up"><i></i>Roofing insights</span>
+          <h2 class="h2" data-aos="fade-up">Small details,<br>bigger roof performance</h2>
+          <div class="facts-shell" data-aos="fade-up" data-aos-delay="80">
+            <div class="swiper facts-swiper">
+              <div class="swiper-wrapper">
+                <article class="swiper-slide fact-card">
+                  <div class="fact-card__icon" aria-hidden="true">
+                    <svg viewBox="0 0 48 48">
+                      <circle cx="24" cy="24" r="10" />
+                      <path d="M24 4v7M24 37v7M6 24h7M35 24h7M11 11l5 5M32 32l5 5M11 37l5-5M32 16l5-5" />
+                    </svg>
+                  </div>
+                  <p>Lighter shingle colors reflect heat, keeping attics noticeably cooler through peak summer afternoons.</p>
+                </article>
+                <article class="swiper-slide fact-card">
+                  <div class="fact-card__icon" aria-hidden="true">
+                    <svg viewBox="0 0 48 48">
+                      <path d="M6 16c8 0 8 6 16 6s8-6 16-6" />
+                      <path d="M6 24c8 0 8 6 16 6s8-6 10-6" />
+                      <path d="M6 32c6 0 6 4 12 4" />
+                    </svg>
+                  </div>
+                  <p>Balanced attic ventilation stops trapped moisture from quietly rotting the roof deck underneath.</p>
+                </article>
+                <article class="swiper-slide fact-card">
+                  <div class="fact-card__icon" aria-hidden="true">
+                    <svg viewBox="0 0 48 48">
+                      <path d="M16 10 10 16l6 6" />
+                      <path d="M10 16h20a8 8 0 0 1 8 8v2" />
+                      <path d="M32 38l6-6-6-6" />
+                      <path d="M38 32H18a8 8 0 0 1-8-8v-2" />
+                    </svg>
+                  </div>
+                  <p>Metal roofing is fully recyclable, making it one of the most sustainable long-term roofing choices.</p>
+                </article>
+                <article class="swiper-slide fact-card">
+                  <div class="fact-card__icon" aria-hidden="true">
+                    <svg viewBox="0 0 48 48">
+                      <path d="M24 6c8 10 12 16.5 12 22a12 12 0 1 1-24 0c0-5.5 4-12 12-22Z" />
+                    </svg>
+                  </div>
+                  <p>Clear gutters keep water moving away from the roofline instead of pooling near the foundation.</p>
+                </article>
+                <article class="swiper-slide fact-card">
+                  <div class="fact-card__icon" aria-hidden="true">
+                    <svg viewBox="0 0 48 48">
+                      <path d="M24 5 40 11v11c0 11-7 18-16 21-9-3-16-10-16-21V11Z" />
+                      <path d="m16 24 5.5 5.5L33 18" />
+                    </svg>
+                  </div>
+                  <p>A properly installed roof is your home's first line of defense against wind, hail, and heavy rain.</p>
+                </article>
+                <article class="swiper-slide fact-card">
+                  <div class="fact-card__icon" aria-hidden="true">
+                    <svg viewBox="0 0 48 48">
+                      <path d="M6 30 24 12l18 18" />
+                      <path d="M12 30v10h24V30" />
+                      <path d="M24 12v8M20 20h8" />
+                    </svg>
+                  </div>
+                  <p>Most roof leaks start at flashing around chimneys and vents, not through the shingles themselves.</p>
+                </article>
+              </div>
+            </div>
+            <div class="facts-nav">
+              <span class="facts-nav__line" aria-hidden="true"></span>
+              <button type="button" class="facts-nav__btn" data-facts-prev aria-label="Previous fact">
+                <svg viewBox="0 0 24 24">
+                  <path d="M6 15l6-6 6 6" />
+                </svg>
+              </button>
+              <button type="button" class="facts-nav__btn" data-facts-next aria-label="Next fact">
+                <svg viewBox="0 0 24 24">
+                  <path d="M6 9l6 6 6-6" />
+                </svg>
+              </button>
+              <span class="facts-nav__line" aria-hidden="true"></span>
+            </div>
+          </div>
         </div>
-        <form class="contact-form" action="contact.php" method="post" novalidate data-aos="fade-up">
-          <div class="field"><label for="full-name">Full name</label><input id="full-name" name="full_name"
-              autocomplete="name" required></div>
-          <div class="field"><label for="email">Email</label><input id="email" name="email" type="email"
-              autocomplete="email" required></div>
-          <div class="field field--full"><label for="service">What do you need?</label><select id="service"
-              name="service" required>
-              <option value="" selected disabled>Select a roofing need</option>
-              <option>Roof repair</option>
-              <option>Roof replacement</option>
-              <option>Roof inspection</option>
-              <option>Commercial roofing</option>
-              <option>Something else</option>
-            </select></div>
-          <div class="field field--full"><label for="message">Message</label><textarea id="message" name="message"
-              placeholder="Tell us a little about the property and project…" required></textarea></div>
-          <div class="honeypot" aria-hidden="true"><label>Website<input name="website" tabindex="-1"
-                autocomplete="off"></label></div><label class="consent"><input type="checkbox" name="privacy_consent"
-              value="yes" required><span>I agree that Roofly may use this information to respond to my enquiry. See our
-              <a href="privacy-policy.html" style="text-decoration:underline">Privacy Policy</a>.</span></label>
-          <div class="form-actions"><button class="button button--coral" type="submit">Send enquiry <span
-                class="arrow">↗</span></button><span class="form-status" role="status" aria-live="polite"></span></div>
-        </form>
+        <div class="contact-panel" data-aos="fade-up" data-aos-delay="80">
+          <img class="contact-panel__photo" src="assets/images/provider-residential-roof.jpg"
+            alt="" loading="lazy">
+          <div class="contact-panel__scrim" aria-hidden="true"></div>
+          <div class="contact-panel__body">
+            <div class="contact__copy">
+              <span class="eyebrow eyebrow--light"><i></i>Enquiry form</span>
+              <h2 class="h2">Get in touch</h2>
+              <p>Tell us what you are looking for and we will help point your search in a more useful direction.</p><a
+                class="contact__email" data-site-email href="mailto:hello@roofly.network">hello@roofly.network</a>
+            </div>
+            <form class="contact-form" action="contact.php" method="post" novalidate>
+              <div class="field"><label for="full-name">Full name</label><input id="full-name" name="full_name"
+                  autocomplete="name" required></div>
+              <div class="field"><label for="email">Email</label><input id="email" name="email" type="email"
+                  autocomplete="email" required></div>
+              <div class="field field--full"><label for="service">What do you need?</label><select id="service"
+                  name="service" required>
+                  <option value="" selected disabled>Select a roofing need</option>
+                  <option>Roof repair</option>
+                  <option>Roof replacement</option>
+                  <option>Roof inspection</option>
+                  <option>Commercial roofing</option>
+                  <option>Something else</option>
+                </select></div>
+              <div class="field field--full"><label for="message">Message</label><textarea id="message" name="message"
+                  placeholder="Tell us a little about the property and project…" required></textarea></div>
+              <div class="honeypot" aria-hidden="true"><label>Website<input name="website" tabindex="-1"
+                    autocomplete="off"></label></div><label class="consent"><input type="checkbox" name="privacy_consent"
+                  value="yes" required><span>I agree that Roofly may use this information to respond to my enquiry. See our
+                  <a href="privacy-policy.html" style="text-decoration:underline">Privacy Policy</a>.</span></label>
+              <div class="form-actions"><button class="button button--coral" type="submit">Send enquiry <span
+                    class="arrow">↗</span></button><span class="form-status" role="status" aria-live="polite"></span></div>
+            </form>
+          </div>
+        </div>
       </div>
     </section>
   </main>

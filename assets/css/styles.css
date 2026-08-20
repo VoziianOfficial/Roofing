@@ -6648,3 +6648,54 @@ img {
     line-height: 1.36
   }
 }
+
+.about-photo-ghost,
+.about-photo-panel:before {
+  pointer-events: none
+}
+
+.about-photo-swiper {
+  touch-action: pan-y
+}
+
+.about-photo-controls {
+  z-index: 6;
+  pointer-events: auto
+}
+
+.about-photo-arrow {
+  position: relative;
+  z-index: 1;
+  cursor: pointer;
+  touch-action: manipulation
+}
+
+@media (max-width:900px) {
+  .nav__item--has-menu:not(.is-open) .nav-dropdown {
+    display: none;
+    pointer-events: none
+  }
+
+  .nav__item--has-menu.is-open .nav-dropdown {
+    display: grid
+  }
+
+  .nav__trigger {
+    cursor: pointer
+  }
+
+  .site-footer {
+    position: relative;
+    z-index: 0
+  }
+
+  .footer__links a {
+    position: relative;
+    z-index: 1;
+    display: inline-flex;
+    min-height: 44px;
+    align-items: center;
+    justify-content: center;
+    padding: 6px 0
+  }
+}

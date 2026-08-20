@@ -3940,7 +3940,7 @@ img {
 }
 
 .service-stats {
-  padding: 104px 0 92px;
+  padding: 74px 0 66px;
   background: var(--paper);
   color: var(--ink);
   overflow: hidden
@@ -3959,39 +3959,40 @@ img {
 }
 
 .service-stats__intro h2 {
-  max-width: 900px;
+  max-width: 760px;
   margin: 0;
   color: #34343a;
   font-size: clamp(3.25rem, 4.25vw, 5.45rem);
   font-weight: 850;
   line-height: 1.08;
   letter-spacing: 0;
+  overflow-wrap: anywhere;
   text-wrap: balance
 }
 
 .service-stats__intro p {
   max-width: 860px;
-  margin: 24px 0 0;
+  margin: 18px 0 0;
   color: #6f7378;
   font-size: clamp(1.2rem, 1.45vw, 1.68rem);
-  line-height: 1.7;
+  line-height: 1.58;
   text-wrap: pretty
 }
 
 .service-stats__cards {
   display: grid;
   grid-template-columns: repeat(4, minmax(260px, 1fr));
-  gap: clamp(28px, 3.4vw, 72px);
+  gap: clamp(24px, 3vw, 60px);
   align-items: start;
-  margin-top: 74px
+  margin-top: 48px
 }
 
 .service-stats-card {
   display: grid;
   justify-items: center;
   align-content: center;
-  min-height: 430px;
-  padding: 52px 34px;
+  min-height: 360px;
+  padding: 38px 30px;
   background: var(--coral);
   border-radius: 8px;
   color: #fff;
@@ -4000,13 +4001,13 @@ img {
 }
 
 .service-stats-card:nth-child(even) {
-  margin-top: 104px
+  margin-top: 72px
 }
 
 .service-stats-card svg {
-  width: 88px;
-  height: 88px;
-  margin-bottom: 48px;
+  width: 76px;
+  height: 76px;
+  margin-bottom: 34px;
   fill: none;
   stroke: currentColor;
   stroke-width: 3.2;
@@ -4023,7 +4024,7 @@ img {
 }
 
 .service-stats-card span {
-  margin-top: 34px;
+  margin-top: 24px;
   font-size: clamp(1rem, 1.05vw, 1.28rem);
   font-weight: 850;
   line-height: 1.18;
